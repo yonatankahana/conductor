@@ -1,5 +1,9 @@
 ![Conductor](docs/docs/img/logo.png)
 
+# Attention
+
+This is an unofficial fork of Conductor for [Konductor](https://github.com/project-konductor/konductor) project.
+
 # Conductor
 Conductor is a platform created by Netflix to orchestrate workflows that span across microservices.
 
