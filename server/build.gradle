@@ -44,7 +44,7 @@ dependencies {
     implementation "org.springdoc:springdoc-openapi-ui:${revOpenapi}"
 
     runtimeOnly "org.glassfish.jaxb:jaxb-runtime:${revJAXB}"
-    implementation "com.netflix.conductor:conductor-postgres-persistence:3.13.3"
+    implementation "com.netflix.conductor:conductor-postgres-persistence:3.13.5"
 
     testImplementation project(':conductor-rest')
     testImplementation project(':conductor-common')
