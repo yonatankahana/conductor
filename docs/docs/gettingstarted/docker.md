@@ -63,12 +63,12 @@ By default `docker-compose.yaml` uses `config-local.properties`. This configures
 
 A selection of `docker-compose-*.yaml` and `config-*.properties` files are provided demonstrating the use of alternative persistence engines.
 
-| File                           | Containers                                                                              |
-|--------------------------------|-----------------------------------------------------------------------------------------|
-| docker-compose.yaml            | <ol><li>In Memory Conductor Server</li><li>Elasticsearch</li><li>UI</li></ol>           |
-| docker-compose-dynomite.yaml   | <ol><li>Conductor Server</li><li>Elasticsearch</li><li>UI</li><li>Dynomite Redis for persistence</li></ol> |
-| docker-compose-postgres.yaml   | <ol><li>Conductor Server</li><li>Elasticsearch</li><li>UI</li><li>Postgres persistence</li></ol> |
-| docker-compose-prometheus.yaml | Brings up Prometheus server                                                             |    
+| File                           | Containers                                                                                                               |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| docker-compose.yaml            | <ol><li>Conductor Server</li><li>Redis</li><li>Elasticsearch</li><li>UI</li></ol>                                        |
+| docker-compose-dynomite.yaml   | <ol><li>Conductor Server</li><li>Redis</li><li>Elasticsearch</li><li>UI</li><li>Dynomite Redis for persistence</li></ol> |
+| docker-compose-postgresql.yaml | <ol><li>Conductor Server</li><li>Redis</li><li>Elasticsearch</li><li>UI</li><li>PostgreSQL persistence</li></ol>         |
+| docker-compose-prometheus.yaml | Brings up Prometheus server                                                                                              |    
 
 For example this will start the server instance backed by a PostgreSQL DB.
 ```
