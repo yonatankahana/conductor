@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  prometheus:
+    extends:
+      file: docker-compose.base.yaml
+      service: prometheus

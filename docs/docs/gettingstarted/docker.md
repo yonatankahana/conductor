@@ -6,32 +6,33 @@ The docker compose will bring up the following:
 
 1. Conductor API Server
 2. Conductor UI
-3. Elasticsearch for searching workflows
+3. Elasticsearch
+4. Redis
 
 ## Prerequisites
-1. Docker: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+
+1. [Docker](https://docs.docker.com/get-docker/)
 2. Recommended host with CPU and RAM to be able to run multiple docker containers (at-least 16GB RAM)
 
 ## Steps
 
 ### 1. Clone the Conductor Code
 
-```shell
-$ git clone https://github.com/Netflix/conductor.git
+```console
+git clone https://github.com/Netflix/conductor.git
 ```
 
 ### 2. Build the Docker Compose
 
-```shell
-$ cd conductor
-conductor $ cd docker
-docker $ docker-compose build
+```console
+cd conductor/docker
+docker-compose build
 ```
 
 ### 3. Run Docker Compose
 
-```shell
-docker $ docker-compose up
+```console
+docker-compose up
 ```
 
 Once up and running, you will see the following in your Docker dashboard:
@@ -43,22 +44,26 @@ Once up and running, you will see the following in your Docker dashboard:
 You can access the UI & Server on your browser to verify that they are running correctly:
 
 #### Conductor Server URL
-[http://localhost:8080](http://localhost:8080)
+
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 <img src="/img/tutorial/swagger.png" style="width: 100%"/>
 
 #### Conductor UI URL
-[http://localhost:5000/](http://localhost:5000)
+
+[http://localhost/](http://localhost)
 
 <img src="/img/tutorial/conductorUI.png" style="width: 100%" />
 
 
 ### 4. Exiting Compose
-`Ctrl+c` will exit docker compose.
+
+`Ctrl+C` will exit docker compose.
 
 To ensure images are stopped execute: `docker-compose down`.
 
 ## Alternative Persistence Engines
+
 By default `docker-compose.yaml` uses `config-local.properties`. This configures the `memory` database, where data is lost when the server terminates. This configuration is useful for testing or demo only.
 
 A selection of `docker-compose-*.yaml` and `config-*.properties` files are provided demonstrating the use of alternative persistence engines.
