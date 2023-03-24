@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  server:
+    extends:
+      file: docker-compose.base.yaml
+      service: server
+    volumes:
+      - "./config/config-minimal.properties:/app/config/config.properties"
+      - redis
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    extends:
+      file: docker-compose.base.yaml
+      service: redis
+
+volumes:
+  redis-data:
+    driver: local
+
+networks:
+  internal: {}

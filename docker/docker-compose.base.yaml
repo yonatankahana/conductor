@@ -5,17 +5,10 @@ services:
     build:
       context: ../
       dockerfile: Dockerfile
-    volumes:
-      - "./config/config.properties:/app/config/config.properties"
     ports:
       - "8080:8080"
     networks:
       - internal
-    links:
-      - elasticsearch
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
 
   ui:
     build:
@@ -27,11 +20,6 @@ services:
       - "80:8080"
     networks:
       - internal
-    links:
-      - server
-    depends_on:
-      server:
-        condition: service_healthy
 
   elasticsearch:
     image: "elasticsearch:6.8.15"
@@ -91,6 +79,3 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yaml'
     networks:
       - internal
-    depends_on:
-      server:
-        condition: service_healthy

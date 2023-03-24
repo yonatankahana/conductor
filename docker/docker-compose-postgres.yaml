@@ -8,9 +8,12 @@ services:
     volumes:
       - "./config/config-postgresql.properties:/app/config/config.properties"
     links:
+      - elasticsearch
       - redis
       - postgresql
     depends_on:
+      elasticsearch:
+        condition: service_healthy
       redis:
         condition: service_healthy
       postgresql:
@@ -20,6 +23,11 @@ services:
     extends:
       file: docker-compose.base.yaml
       service: ui
+    links:
+      - server
+    depends_on:
+      server:
+        condition: service_healthy
 
   redis:
     extends:
